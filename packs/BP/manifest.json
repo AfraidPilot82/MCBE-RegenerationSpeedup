@@ -1,0 +1,16 @@
+{
+  "format_version": 2,
+  "header": {
+    "name": "pack.name",
+    "description": "pack.description",
+    "uuid": "a7b7e429-46e0-4f6d-86b4-7898881257aa",
+    "version": [ 1, 0, 0 ],
+    "min_engine_version": [ 1, 21, 90 ]
+  },
+  "modules": [ ],
+  "dependencies": [ ],
+  "metadata": {
+    "authors": [ "APCraft" ],
+    "license": "LGPL-3.0-or-later"
+  }
+}

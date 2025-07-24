@@ -1,0 +1,82 @@
+{
+	"$schema": "https://raw.githubusercontent.com/Bedrock-OSS/regolith-schemas/main/config/v1.4.json",
+	"author": "APCraft",
+	"name": "RegenerationSpeedup",
+	"packs": {
+		"behaviorPack": "./packs/BP"
+	},
+	"regolith": {
+		"dataPath": "./packs/data",
+		"filterDefinitions": {
+			"gametests": {
+				"url": "github.com/Bedrock-OSS/regolith-filters",
+				"version": "1.7.3"
+			},
+			"json_cleaner": {
+				"url": "github.com/Bedrock-OSS/regolith-filters",
+				"version": "2.0.1"
+			},
+			"manifest_cleaner": {
+				"url": "github.com/AfraidPilot82/regolith-filters",
+				"version": "e8cbbb65d54f237923c9ea409fd88ad1caa57c3d"
+			}
+		},
+		"formatVersion": "1.4.0",
+		"profiles": {
+			"default": {
+				"export": {
+					"build": "standard",
+					"readOnly": false,
+					"target": "development"
+				},
+				"filters": [
+					{
+						"filter": "gametests",
+						"settings": {
+							"buildOptions": {
+								"charset": "utf8",
+								"minify": false
+							},
+							"modules": [
+								"@minecraft/server@2.1.0-beta"
+							]
+						}
+					},
+					{
+						"filter": "manifest_cleaner"
+					}
+				]
+			},
+			"production": {
+				"export": {
+					"build": "standard",
+					"readOnly": false,
+					"target": "development"
+				},
+				"filters": [
+					{
+						"filter": "gametests",
+						"settings": {
+							"buildOptions": {
+								"charset": "utf8"
+							},
+							"modules": [
+								"@minecraft/server@2.1.0-beta"
+							]
+						}
+					},
+					{
+						"filter": "manifest_cleaner"
+					},
+					{
+						"filter": "json_cleaner",
+						"settings": {
+							"minify": true,
+							"stripSchemas": true
+						}
+					}
+				]
+			}
+		}
+	}
+}
